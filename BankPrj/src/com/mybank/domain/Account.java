@@ -9,6 +9,11 @@ package com.mybank.domain;
  */
 public class Account {
 	
+	@Override
+	public String toString() {
+		return String.format("Account [balance = %s]", this.balance);
+	}
+
 	/**
 	 * Current account balance of User.
 	 */
@@ -42,6 +47,13 @@ public class Account {
 			this.balance -= take;
 		}
 		return take <= this.balance;
+	}
+	
+	/**
+	 * Default constructor of Account.
+	 */
+	public Account() {
+		this.balance = 0;
 	}
 	
 	/**

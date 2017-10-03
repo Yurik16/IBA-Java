@@ -29,10 +29,11 @@ private Account account;
 public Customer(String fName, String lName) {
 	this.firstName = fName;
 	this.lastName = lName;
+	this.account = new Account();
 }
 
 /**
- * Getter for the First name of Customer. * 
+ * Getter for the First name of Customer.
  * @return first name
  */
 public String getFirstName() {
