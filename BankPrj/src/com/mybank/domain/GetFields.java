@@ -1,7 +1,6 @@
 package com.mybank.domain;
 
 import java.lang.reflect.Field;
-import com.mybank.test.TestBanking;
 /**
  * 
  * class GetFields
@@ -14,7 +13,7 @@ public class GetFields {
 	
 	public static void main(String[] args) {
 		try {
-			Class cls = TestBanking.class;
+			Class<?> cls = Class.forName("com.mybank.domain.Account");
 			Object obj = cls.newInstance();
 			Field[] fields = cls.getDeclaredFields();
 			System.out.println(fields.getClass().getName());
@@ -24,8 +23,7 @@ public class GetFields {
 															x.getName(), x.getType().getName(), x.get(obj)));
 			}
 			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {		
 			e.printStackTrace();
 		}
 		

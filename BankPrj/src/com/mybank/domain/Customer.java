@@ -1,5 +1,13 @@
 package com.mybank.domain;
 
+/**
+ * 
+ * class Customer.
+ * 
+ * @author Yury Chuksin
+ * @version 1.0.0
+ * @since 28-09-2017
+ */
 public class Customer {
 	
 @Override
@@ -19,17 +27,23 @@ private String firstName;
 private String lastName;
 
 /**
- * Account of Customer.
+ * Accounts of Customer.
  */
-private Account account;
+private Account[] accounts;
+
+private int numOfAccounts;
 
 /**
  * Constructor of Customer.
+ * @param fName First name of Customer
+ * @param lName Last name of Customer
  */
 public Customer(String fName, String lName) {
 	this.firstName = fName;
 	this.lastName = lName;
-	this.account = new Account();
+	this.accounts = new Account[10];
+	this.numOfAccounts = 0;
+
 }
 
 /**
@@ -41,8 +55,7 @@ public String getFirstName() {
 }
 
 /**
- * Getter for the Last name of Customer.
- * 
+ * Getter for the Last name of Customer. 
  * @return last name
  */
 public String getLastName() {
@@ -50,18 +63,34 @@ public String getLastName() {
 }
 
 /**
- * Getter for Account of Customer.
- * 
+ * Getter for Account of Customer. 
  * @return account of Customer
  */
+public Account getAccount(int index) {
+	return accounts[index];
+}
+
 public Account getAccount() {
-	return account;
+	return accounts[0];
 }
 
 /**
- * Setter for Account of Customer.
+ * Setter for accounts of Customer.
+ * @param account account of Customer
  */
 public void setAccount(Account account) {
-	this.account = account;
+	this.accounts[numOfAccounts] = account;
+}
+
+/**
+ * Getting accounts number of Customer. 
+ * @return integer number of accounts
+ */
+public int getNumOfAccounts() {	
+	return this.numOfAccounts;
+}
+
+public void addAccount(Account acc) {
+	this.accounts[numOfAccounts++] = acc;
 }
 }

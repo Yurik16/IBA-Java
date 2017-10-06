@@ -1,67 +1,57 @@
 package com.mybank.domain;
+/*
+ * Account.java
+ *
+ * Created on November 9, 2005, 12:46 AM
+ *
+ * To change this template, choose Tools | Template Manager
+ * and open the template in the editor.
+ */
 
-/** 
- * class Account
+/**
  * 
  * @author Yury Chuksin
+ *
  * @version 1.0.0
- * @since 27.09.2017
+ * @since 28.09.2017
  */
 public class Account {
-	
-	@Override
-	public String toString() {
-		return String.format("Account [balance = %s]", this.balance);
-	}
-
-	/**
-	 * Current account balance of User.
-	 */
-	private double balance;
-	
-	/**
-	 * Getter for balance.
-	 * 
-	 * @return current balance
-	 */
-	public double getBalance() {
-		return this.balance;
-	}
-	
-	/**
-	 * Deposit method, adding specified number.
-	 * 
-	 * @param depo specified number for adding.
-	 */
-	public void deposit(double put) {
-		this.balance += put;
-	}
-	
-	/**
-	 * Withdraw method, taking specified number.
-	 *  
-	 * @param take specified number for taking.
-	 */
-	public boolean withdraw(double take) {
-		if(take <= this.balance) {
-			this.balance -= take;
-		}
-		return take <= this.balance;
-	}
-	
-	/**
-	 * Default constructor of Account.
-	 */
-	public Account() {
-		this.balance = 0;
-	}
-	
-	/**
-	 * Constructor of Account.
-	 * 
-	 * @param initBalance current account balance of User
-	 */
-	public Account(double initBalance) {
-		this.balance = initBalance;
-	}
+    protected double balance;
+    
+    /**
+     * Constructor of Account.
+     * @param initBalance balance of Account
+     */
+    public Account(double initBalance) {
+        balance = initBalance;
+    }
+    
+    /**
+     * Getter for balance of Account.
+     * @return double balance of Account
+     */
+    public double getBalance() {
+        return balance;
+    }
+    
+    /**
+     * Adding specific number to deposit.
+     * @param amt specific number
+     */
+    public boolean deposit(double amt) {
+    	double start = this.balance;
+        balance += amt;
+        return start < this.balance;
+    }
+    
+    /**
+     * Subtract specific number from balance.
+     * @param amt specific number
+     */
+    public boolean withdraw(double amt) {
+        if (balance >= amt) {
+            balance -= amt;
+        }
+        return balance >= amt;
+    }
 }
