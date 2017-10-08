@@ -74,6 +74,10 @@ public Account getAccount() {
 	return accounts[0];
 }
 
+public Account[] getAccounts() {
+	return accounts;
+}
+
 /**
  * Setter for accounts of Customer.
  * @param account account of Customer

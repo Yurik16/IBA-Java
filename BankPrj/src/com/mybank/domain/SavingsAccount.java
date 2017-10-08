@@ -24,4 +24,9 @@ public class SavingsAccount extends Account{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
+
+	public void accumulateInterest() {
+		// TODO Auto-generated method stub
+		balance += (balance * (interestRate / 12) );
+	}
 }

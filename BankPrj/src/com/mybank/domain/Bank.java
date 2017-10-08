@@ -29,4 +29,8 @@ public class Bank {
 	public Customer getCustomer(int index) {
 		return customers[index];
 	}
+	
+	public Customer[] getCustomers() {
+	return this.customers;
+	}
 }
