@@ -59,21 +59,21 @@ public class Account {
     /**
      * Adding specific number to deposit.
      * @param amt specific number
+     * @return 
      */
-    public boolean deposit(double amt) {
-    	double start = this.balance;
+    public void deposit(double amt) {
         balance += amt;
-        return start < this.balance;
     }
     
     /**
      * Subtract specific number from balance.
      * @param amt specific number
+     * @throws OverdraftException 
      */
-    public boolean withdraw(double amt) {
+    public void withdraw(double amt) throws OverdraftException {
         if (balance >= amt) {
             balance -= amt;
-        }
-        return balance >= amt;
+        } else throw new OverdraftException("Not enougth balance", amt - balance);
+
     }
 }

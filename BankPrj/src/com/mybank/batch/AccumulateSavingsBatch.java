@@ -19,8 +19,8 @@ public class AccumulateSavingsBatch {
 	
 	public void doBatch() {
 
-		for(int i = 0; i < bank.getNumOfCustomers(); i++) {
-			Customer cust = bank.getCustomer(i);
+		for(int i = 0; i < Bank.getNumOfCustomers(); i++) {
+			Customer cust = Bank.getCustomer(i);
 			for(int j = 0; j < cust.getNumOfAccounts(); j++) {
 				Account acc = cust.getAccount(j);
 				if(acc instanceof SavingsAccount) {
@@ -33,5 +33,9 @@ public class AccumulateSavingsBatch {
 	
 	public void setBank(Bank b) {
 		this.bank = b;
+	}
+	
+	public Bank getBank() {
+		return this.bank;
 	}
 }
