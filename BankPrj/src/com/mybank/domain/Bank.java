@@ -1,5 +1,8 @@
 package com.mybank.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * class Bank.
@@ -10,18 +13,19 @@ package com.mybank.domain;
  */
 public class Bank {	
 	
-	private static Customer[] customers;
+	private static List<Customer> customers;
 	private static int numberOfCustomers;
 	
 	static {
-		customers = new Customer[10];
+		customers = new ArrayList<Customer>(10);
 		numberOfCustomers = 0;
 	}
 	
 	public Bank() {}
 	
 	public static void addCustomer(String f, String l) {
-		customers[numberOfCustomers++] = new Customer(f, l);
+		customers.add(new Customer(f, l));
+		Bank.numberOfCustomers++;
 	}
 	
 	public static int getNumOfCustomers() {
@@ -29,10 +33,10 @@ public class Bank {
 	}
 	
 	public static Customer getCustomer(int index) {
-		return customers[index];
+		return customers.get(index);
 	}
 	
-	public static Customer[] getCustomers() {
+	public static List<Customer> getCustomers() {
 	return customers;
 	}
 }

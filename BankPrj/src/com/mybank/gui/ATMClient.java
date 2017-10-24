@@ -2,17 +2,13 @@ package com.mybank.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.List;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import com.mybank.data.DataSource;
 
@@ -93,6 +89,7 @@ public class ATMClient {
 		leftTop.add(deposit);
 		leftTop.add(withdraw);
 		leftP.add(leftTop);
+		balance.addActionListener(new AtmActions());
 	}
 	
 	void initLeftBottomPanel() {

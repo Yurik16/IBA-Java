@@ -28,37 +28,30 @@ public class DataSource {
 		Customer customer;
 		int numOfCustomers = input.nextInt();
 	       
-	    for ( int idx = 0; idx < numOfCustomers; idx++ ) {
-	        
+	    for ( int idx = 0; idx < numOfCustomers; idx++ ) {	        
 	        String firstName = input.next();
 	        String lastName = input.next();
 	        Bank.addCustomer(firstName, lastName);
-	        customer = Bank.getCustomer(idx);
-	            
-	       
+	        customer = Bank.getCustomer(idx);	       
 	        int numOfAccounts = input.nextInt();
-	        while ( numOfAccounts-- > 0 ) {
-	          
-	          
-	          char accountType = input.next().charAt(0);
+	        
+	        while ( numOfAccounts-- > 0 ) {	          
+	          char accountType = input.next().charAt(0);	          
 	          switch ( accountType ) {
-	            
 	            case 'S': {
 	              float initBalance = (float)input.nextFloat();
 	              float interestRate = (float)input.nextFloat();
 	              customer.addAccount(new SavingsAccount(initBalance, interestRate));
 	              break;
 	            }
-	                  
-	            // Checking account
 	            case 'C': {
 	              float initBalance = (float)input.nextFloat();
 	              float overdraftProtection = (float)input.nextFloat();
 	              customer.addAccount(new CheckingAccount(initBalance, overdraftProtection));
 	              break;
 	            }
-	        } // END of switch
-	      } // END of create accounts loop
-	    } // END of create customers loop
+	        }
+	      }
+	    }
 	  }
 	}

@@ -3,5 +3,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="D:/download/apache-commons-lang.jar"/>
+	<classpathentry kind="lib" path="D:/download/castor.jar/castor.jar" sourcepath="C:/Users/User/.sourceattacher/castor-1.2-sources.jar"/>
+	<classpathentry kind="lib" path="D:/download/org-apache-commons-logging.jar/org-apache-commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/download/apache-xml-xerces.jar/apache-xml-xerces.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -19,25 +19,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @version 1.0.0
  * @since 28.09.2017
  */
-public class Account {
-    /* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
+public class Account implements Comparable<Account>{
+	
 	protected double balance;
     
     /**
@@ -76,4 +59,20 @@ public class Account {
         } else throw new OverdraftException("Not enougth balance", amt - balance);
 
     }
+    
+    @Override
+	public int hashCode() {		
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	@Override
+	public boolean equals(Object obj) {		
+		return EqualsBuilder.reflectionEquals(this, obj);
+	}
+
+	@Override
+	public int compareTo(Account o) {		
+		return (int) (this.balance - o.balance);
+	}
+
 }

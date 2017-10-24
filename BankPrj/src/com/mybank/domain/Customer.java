@@ -1,5 +1,8 @@
 package com.mybank.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * class Customer.
@@ -9,12 +12,6 @@ package com.mybank.domain;
  * @since 28-09-2017
  */
 public class Customer {
-	
-@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return String.format("[%s %s]", this.getFirstName(), this.getLastName());
-	}
 
 /**
  * First name of Customer.
@@ -29,7 +26,7 @@ private String lastName;
 /**
  * Accounts of Customer.
  */
-private Account[] accounts;
+private List<Account> accounts;
 
 private int numOfAccounts;
 
@@ -41,9 +38,8 @@ private int numOfAccounts;
 public Customer(String fName, String lName) {
 	this.firstName = fName;
 	this.lastName = lName;
-	this.accounts = new Account[10];
+	this.accounts = new ArrayList<Account>(10);
 	this.numOfAccounts = 0;
-
 }
 
 /**
@@ -63,27 +59,28 @@ public String getLastName() {
 }
 
 /**
- * Getter for Account of Customer. 
+ * Getter for Account of Customer.
+ * @param index index of getting Account from Customer 
  * @return account of Customer
  */
 public Account getAccount(int index) {
-	return accounts[index];
-}
-
-public Account getAccount() {
-	return accounts[0];
-}
-
-public Account[] getAccounts() {
-	return accounts;
+	return accounts.get(index);
 }
 
 /**
- * Setter for accounts of Customer.
- * @param account account of Customer
+ * Getter for Account of Customer.
+ * @return account of Customer with index 0
  */
-public void setAccount(Account account) {
-	this.accounts[numOfAccounts] = account;
+public Account getAccount() {
+	return accounts.get(0);
+}
+
+/**
+ * Getter for Accounts Array of Customer.
+ * @return Accounts Array
+ */
+public List<Account> getAccounts() {
+	return accounts;
 }
 
 /**
@@ -94,7 +91,17 @@ public int getNumOfAccounts() {
 	return this.numOfAccounts;
 }
 
+/**
+ * Adding Account to Account Array of Customer.
+ * @param acc Account to add
+ */
 public void addAccount(Account acc) {
-	this.accounts[numOfAccounts++] = acc;
+	this.accounts.add(acc);
+	this.numOfAccounts++;
+}
+
+@Override
+public String toString() {
+	return String.format("[%s %s]", this.getFirstName(), this.getLastName());
 }
 }

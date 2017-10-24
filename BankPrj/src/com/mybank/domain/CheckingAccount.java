@@ -1,5 +1,10 @@
 package com.mybank.domain;
 
+
+
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * 
  * @author Yury Chuksin
@@ -37,6 +42,16 @@ public class CheckingAccount extends Account{
 			this.balance -= amt;
 		}
 
+	}
+
+	@Override
+	public int hashCode() {		
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	@Override
+	public boolean equals(Object obj) {		
+		return EqualsBuilder.reflectionEquals(this, obj);
 	}
 
 }
