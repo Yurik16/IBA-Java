@@ -94,7 +94,7 @@ public class ThreadsGUI {
 		panel = new JPanel(new GridLayout(1, 2));
 		barPanel = new JPanel(new GridLayout(3, 1));
 		output = new JTextArea(10, 30);
-		input = new JTextField(5);
+		//input = new JTextField(5);
 		start = new JButton("Start");
 		bar1 = new JProgressBar();
 		bar2 = new JProgressBar();
@@ -158,29 +158,27 @@ public class ThreadsGUI {
     	ProgressBarPainter p2;
     	ProgressBarPainter p3;
     	
+    	PrintMe w1;
+    	PrintMe w2;
+    	PrintMe w3;
+    	
 		@Override
 		public void actionPerformed(ActionEvent e) {				
             	
-                p1 = new ProgressBarPainter();
-                p2 = new ProgressBarPainter();
-                p3 = new ProgressBarPainter();                
-                p1.jProgressBarPainter = bar1;
-                p2.jProgressBarPainter = bar2;
-                p3.jProgressBarPainter = bar3;          
+                p1 = new ProgressBarPainter(bar1);
+                p2 = new ProgressBarPainter(bar2);
+                p3 = new ProgressBarPainter(bar3);
                 Thread progressT1 = new Thread(p1);
                 Thread progressT2 = new Thread(p2);
                 Thread progressT3 = new Thread(p3);
-
                 progressT1.start();
                 progressT2.start();
                 progressT3.start();
 
-                PrintMe w1 = new PrintMe(bar1, s1);
-                PrintMe w2 = new PrintMe(bar2, s2);
-                PrintMe w3 = new PrintMe(bar3, s3);
-                w1.jProgressBarW = bar1;
-                w2.jProgressBarW = bar2;
-                w3.jProgressBarW = bar3;
+                w1 = new PrintMe(bar1, s1);
+                w2 = new PrintMe(bar2, s2);
+                w3 = new PrintMe(bar3, s3);
+
                 Thread workerT1 = new Thread(w1);
                 Thread workerT2 = new Thread(w2);
                 Thread workerT3 = new Thread(w3);
@@ -220,7 +218,12 @@ public class ThreadsGUI {
 	}
 	
 	class ProgressBarPainter implements Runnable{
+		
 	    public JProgressBar jProgressBarPainter;
+	    
+	    ProgressBarPainter(JProgressBar pBar) {
+	    	this.jProgressBarPainter = pBar;
+	    }
 	    public void run(){
 	        while(true){
 	            try {
