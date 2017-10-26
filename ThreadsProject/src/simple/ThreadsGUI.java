@@ -158,17 +158,15 @@ public class ThreadsGUI {
 	    	bar.setMinimum(0);
 	    	bar.setMaximum(count);
 	    }
-	    public void run(){
-	    	
-	        int x = 0;    
-	        	for(int i = 0; i < count; i++){
+	    public void run(){    
+	        	for(int i = 0; i <= count; i++){
 		            try {
 		            	output.append(String.format("Curent Thread Name : %s \n", Thread.currentThread().getName()));
 		            	output.setCaretPosition(output.getDocument().getLength()-1);
 		                Thread.sleep(100);
 		                //Update bar
 		                if(Thread.currentThread().getName().equals(nameOfThread)) {
-		                	jProgressBarW.setValue(x++);
+		                	jProgressBarW.setValue(i);
 		                }	                
 		            } catch (Exception ex) {}	            
 		        }
