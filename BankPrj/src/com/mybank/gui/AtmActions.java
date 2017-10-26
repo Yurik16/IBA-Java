@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  */
 public class AtmActions implements ActionListener{
 
-	private 
+	
 	public AtmActions() {
 		
 	}

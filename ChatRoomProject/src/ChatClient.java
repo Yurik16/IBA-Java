@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 /**
  * 
- * class ChatClient.java
+ * class ChatClient.
  * 
  * @author Yury Chuksin
  * @version 1.0.0

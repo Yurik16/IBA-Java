@@ -2,7 +2,7 @@
 
 /**
  * 
- * class StartChat.
+ * main class StartChat.
  * 
  * @author Yury Chuksin
  * @version 1.0.0

@@ -42,7 +42,6 @@ public class Account implements Comparable<Account>{
     /**
      * Adding specific number to deposit.
      * @param amt specific number
-     * @return 
      */
     public void deposit(double amt) {
         balance += amt;
@@ -51,7 +50,7 @@ public class Account implements Comparable<Account>{
     /**
      * Subtract specific number from balance.
      * @param amt specific number
-     * @throws OverdraftException 
+     * @throws OverdraftException current overdraft is too low
      */
     public void withdraw(double amt) throws OverdraftException {
         if (balance >= amt) {
