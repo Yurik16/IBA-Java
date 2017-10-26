@@ -31,23 +31,66 @@ import javax.swing.SwingWorker;
  */
 public class ThreadsGUI {
 
+	/**
+	 * Main frame.
+	 */
 	private JFrame frame;
+	
+	/**
+	 * Output display.
+	 */
 	private JTextArea output;
-	private JTextField input;
+	
+	/**
+	 * Panel for two buttons.
+	 */
 	private JPanel panel;
+	
+	/**
+	 * Panel for three progress bars.
+	 */
 	private JPanel barPanel;
+	
+	/**
+	 * Start button.
+	 */
 	private JButton start;
+	
+	/**
+	 * Progress bar for first Thread.
+	 */
 	private JProgressBar bar1;
+	
+	/**
+	 * Progress bar for second Thread.
+	 */
 	private JProgressBar bar2;
+	
+	/**
+	 * Progress bar for third Thread.
+	 */
 	private JProgressBar bar3;
+	
+	/**
+	 * Scroll tool for output display.
+	 */
 	private JScrollPane textScroll;
+	
+	/**
+	 *  Button which lets the user choose one of several numbers of quantity total thread cycles. 
+	 */
 	private JComboBox<Integer> cycles;
+	
+	/**
+	 * List of total thread cycles.
+	 */
 	private List<Integer> list = Arrays.asList(30, 90, 180, 300);
 	
-	
+	/**
+	 * Main constructor. 
+	 */
 	public ThreadsGUI() {		
-		frame = new JFrame("Thread Window");
-		
+		frame = new JFrame("Thread Window");		
 		panel = new JPanel(new GridLayout(1, 2));
 		barPanel = new JPanel(new GridLayout(3, 1));
 		output = new JTextArea(10, 30);
@@ -60,6 +103,9 @@ public class ThreadsGUI {
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);		
 	}	
 	
+	/**
+	 * Initial frame with two panels and two buttons.
+	 */
 	public void initWindow() {
 		frame.setLayout(new BorderLayout());
 		output = new JTextArea(10, 50);
@@ -79,6 +125,9 @@ public class ThreadsGUI {
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 */
 	public void initPanel() {
 		panel.add(start);
 		panel.add(cycles);
@@ -110,10 +159,7 @@ public class ThreadsGUI {
     	ProgressBarPainter p3;
     	
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			//if(start.getAction() == e) {
-			//	start.setEnabled(false);
-			//	bar.setMaximum((int)cycles.getSelectedItem());				
+		public void actionPerformed(ActionEvent e) {				
             	
                 p1 = new ProgressBarPainter();
                 p2 = new ProgressBarPainter();
