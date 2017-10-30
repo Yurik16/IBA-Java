@@ -2,6 +2,8 @@ package com.mybank.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -49,6 +51,9 @@ public class ATMClient {
 	private JTextField dataEntry;
 	private JPanel leftP;
 	private JPanel rightP;
+	private JButton balance;
+	private JButton deposit;
+	private JButton withdraw;
 	
 	public ATMClient() {
 		frame = new JFrame("AMT Window");
@@ -81,7 +86,7 @@ public class ATMClient {
 	
 	void initLeftTopPanel() {
 		
-		JButton balance = new JButton("BALANCE");
+		JButton balance = new JButton("BALANCE");		
 		JButton deposit = new JButton("DEPOSIT");
 		JButton withdraw = new JButton("WITHDRAW");
 		JPanel leftTop = new JPanel(new GridLayout(3, 1));
@@ -90,24 +95,70 @@ public class ATMClient {
 		leftTop.add(withdraw);
 		leftP.add(leftTop);
 		balance.addActionListener(new AtmActions());
+		deposit.addActionListener(new AtmActions());
+		withdraw.addActionListener(new AtmActions());
 	}
 	
 	void initLeftBottomPanel() {
 		JPanel numPad = new JPanel(new BorderLayout());		
-		dataEntry = new JTextField(10);
 		numPad.add(dataEntry, BorderLayout.CENTER);
+		dataEntry = new JTextField(10);
+		int numOfBut;
+		String s;
+		
 		JButton[] leftBottomButtons = {
 				new JButton("1"), new JButton("2"), new JButton("3"),
 				new JButton("4"), new JButton("5"), new JButton("6"),
 				new JButton("7"), new JButton("8"), new JButton("9"),
-				new JButton("."), new JButton("0"), new JButton("ENTER")};		
+				new JButton("."), new JButton("0"), new JButton("ENTER")};
+					
 		JPanel leftBottom = new JPanel(new GridLayout(4, 3));
 	
 		for(int i = 0; i < leftBottomButtons.length; i++) {
-		leftBottom.add(leftBottomButtons[i]);
+			JButton button = leftBottomButtons[i];
+			button.addActionListener(new NumPadActions(button));			
+			leftBottom.add(leftBottomButtons[i]);
+			}
+			numPad.add(leftBottom, BorderLayout.SOUTH);
+			leftP.add(numPad);
 		}
-		numPad.add(leftBottom, BorderLayout.SOUTH);
-		leftP.add(numPad);
+	
+	class AtmActions implements ActionListener{
+		String askForID = "Enter Customer ID";
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource().equals(balance)) {
+				
+			}
+			if(e.getSource().equals(deposit)) {
+				
+			}
+			if(e.getSource().equals(withdraw)) {
+				
+			}
+			
+		}
+
 	}
 	
+	class NumPadActions implements ActionListener{
+		
+		int value;
+		
+		public NumPadActions(JButton b) {
+			try {
+				this.value = Integer.valueOf(b.getName());
+			}
+			catch(NumberFormatException e) {
+				
+			}this.value = Integer.valueOf(b.getName());
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	
+}
 }
