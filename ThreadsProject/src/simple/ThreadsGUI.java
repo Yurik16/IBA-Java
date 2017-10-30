@@ -178,13 +178,13 @@ public class ThreadsGUI {
                 w1 = new PrintMe(bar1, s1);
                 w2 = new PrintMe(bar2, s2);
                 w3 = new PrintMe(bar3, s3);
-
                 Thread workerT1 = new Thread(w1);
                 Thread workerT2 = new Thread(w2);
                 Thread workerT3 = new Thread(w3);
                 workerT1.setName(s1);
                 workerT2.setName(s2);
                 workerT3.setName(s3);
+                
                 workerT1.start();
                 workerT2.start();
                 workerT3.start();
@@ -207,7 +207,7 @@ public class ThreadsGUI {
 		            try {
 		            	output.append(String.format("Curent Thread Name : %s \n", Thread.currentThread().getName()));
 		            	output.setCaretPosition(output.getDocument().getLength()-1);
-		                Thread.sleep(100);
+		                Thread.sleep(200);
 		                //Update bar
 		                if(Thread.currentThread().getName().equals(nameOfThread)) {
 		                	jProgressBarW.setValue(i);
@@ -227,7 +227,7 @@ public class ThreadsGUI {
 	    public void run(){
 	        while(true){
 	            try {
-	                Thread.sleep(100);
+	                Thread.sleep(200);
 	                jProgressBarPainter.repaint();
 	            } catch (InterruptedException ex) {
 	               break;
