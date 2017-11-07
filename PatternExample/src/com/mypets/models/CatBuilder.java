@@ -1,31 +1,22 @@
 package com.mypets.models;
 
-import com.mypets.models.Pet.PetBuilder;
-
 public class CatBuilder extends PetBuilder{
 	
-	private double tailLength;
-	private double mustacheLength;
+	private Cat cat;
 
-	public Cat build() {
-		return new Cat(this);
-	}
-	
-	public CatBuilder tailLength(double tl) {
-		this.tailLength = tl;
+	@Override
+	CatBuilder buildNameOfPet(String name) {
+		cat.setNameOfPet(String.format("Cat-%s", name));
 		return this;
 	}
 	
-	public CatBuilder mustacheLength(double ml) {
-		this.mustacheLength = ml;
+	CatBuilder buildTail(double t) {
+		cat.setTailLength(t);
 		return this;
 	}
 	
-	public double getTailLength() {
-		return this.tailLength;
-	}
-	
-	public double getMustacheLength() {
-		return this.mustacheLength;
+	CatBuilder buildMustache(double m) {
+		cat.setMustacheLength(m);
+		return this;
 	}
 }
