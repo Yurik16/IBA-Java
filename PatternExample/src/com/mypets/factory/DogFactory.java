@@ -12,12 +12,12 @@ public class DogFactory implements IPetFactory {
 	
 	@Override
 	public Pet creatPet() {
-		dog.setNameOfPet("Murzik");
-		dog.setOwner("OwnerOfCat");
+		dog.setNameOfPet("Rex");
+		dog.setOwner("OwnerOfDog");
 		dog.setColour(Colour.BROWN, Colour.WHITE, Colour.BROWN);
 		dog.setHeight(0.55);
 		dog.setTeeth(0.05);
-		dog.setWeight(4.0);
+		dog.setWeight(21.0);
 		return this.dog;
 	}
 

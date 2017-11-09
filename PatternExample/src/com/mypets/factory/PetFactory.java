@@ -1,11 +1,23 @@
 package com.mypets.factory;
 
-public class PetFactory {
+import com.mypets.models.Pet;
+import com.mypets.models.Pet.Colour;
 
-	IPetFactory factory;
-	
-	public void setFactory(IPetFactory f) {
-		this.factory = f;
+public class PetFactory implements IPetFactory{
+
+	Pet pet;
+
+	public PetFactory() {
+		this.pet = new Pet();
+	}
+
+	@Override
+	public Pet creatPet() {
+		pet.setNameOfPet("SomeName");
+		pet.setOwner("OutOfOwner");
+		pet.setWeight(1.0);
+		pet.setColour(Colour.GREY, Colour.GREY, Colour.GREY);
+		return this.pet;
 	}
 	
 }
