@@ -1,52 +1,51 @@
 package com.mypets.builder;
 
-import com.mypets.models.Cat;
+import com.mypets.models.Dog;
 import com.mypets.models.Pet;
 import com.mypets.models.Pet.Colour;
 
-public class CatBuilder implements IPetBuilder{
-
-	private Cat cat;
+public class DogBuilder implements IPetBuilder {
 	
-	public CatBuilder() {this.cat = new Cat();}
+	Dog dog;
+
+	public DogBuilder() {this.dog = new Dog();}
 	
 	@Override
 	public IPetBuilder buildOwner(String o) {
-		cat.setOwner(o);
+		dog.setOwner(o);
 		return this;
 	}
 
 	@Override
 	public IPetBuilder buildNameOfPet(String n) {
-		cat.setNameOfPet(n);
+		dog.setNameOfPet(n);
 		return this;
 	}
 
 	@Override
 	public IPetBuilder buildWeight(double w) {
-		cat.setWeight(w);
+		dog.setWeight(w);
 		return this;
 	}
 
 	@Override
 	public IPetBuilder buildColour(Colour main, Colour scnd, Colour thrd) {
-		cat.setColour(main, scnd, thrd);
+		dog.setColour(main, scnd, thrd);
 		return this;
 	}
 	
-	public IPetBuilder buildTailLength(double t) {
-		cat.setTailLength(t);
-		return this;
-	}
-	
-	public IPetBuilder buildMustacheLength(Double m) {
-		cat.setMustacheLength(m);
+	public IPetBuilder buildHeight(Double h) {
+		dog.setHeight(h);
 		return this;
 	}
 
+	public IPetBuilder buildTeeth(Double t) {
+		dog.setTeeth(t);
+		return this;
+	}
 	@Override
 	public Pet getThisPet() {
-		return this.cat;
+		return this.dog;
 	}
 
 }

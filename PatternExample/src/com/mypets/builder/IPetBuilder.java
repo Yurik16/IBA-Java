@@ -1,13 +1,16 @@
-package com.mypets.models;
+package com.mypets.builder;
 
+import com.mypets.models.Pet;
 import com.mypets.models.Pet.Colour;
-import com.mypets.models.Pet.PetBuilder;
 
 public interface IPetBuilder {
-	public PetBuilder buildOwner(final String o);
-	public PetBuilder buildNameOfPet(final String n);
-	public PetBuilder buildWeight(final double w);
-	public PetBuilder buildType(final Colour main, Colour scnd, Colour thrd);
+
+	public IPetBuilder buildOwner(final String o);
+	public IPetBuilder buildNameOfPet(final String n);
+	public IPetBuilder buildWeight(final double w);
+	public IPetBuilder buildColour(final Colour main, Colour scnd, Colour thrd);
 	
-	public Pet build();
+	public void createPet();
+	public Pet getThisPet();
+
 }
