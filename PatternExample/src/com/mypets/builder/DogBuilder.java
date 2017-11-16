@@ -11,41 +11,46 @@ public class DogBuilder implements IPetBuilder {
 	public DogBuilder() {this.dog = new Dog();}
 	
 	@Override
-	public IPetBuilder buildOwner(String o) {
+	public void buildOwner(String o) {
 		dog.setOwner(o);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildNameOfPet(String n) {
+	public void buildNameOfPet(String n) {
 		dog.setNameOfPet(n);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildWeight(double w) {
+	public void buildWeight(double w) {
 		dog.setWeight(w);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildColour(Colour main, Colour scnd, Colour thrd) {
+	public void buildColour(Colour main, Colour scnd, Colour thrd) {
 		dog.setColour(main, scnd, thrd);
-		return this;
 	}
 	
-	public IPetBuilder buildHeight(Double h) {
+	public void buildHeight(Double h) {
 		dog.setHeight(h);
-		return this;
 	}
 
-	public IPetBuilder buildTeeth(Double t) {
+	public void buildTeeth(Double t) {
 		dog.setTeeth(t);
-		return this;
 	}
+	
 	@Override
-	public Pet getThisPet() {
-		return this.dog;
+	public Pet getPet() {
+		return dog;
+	}
+
+	@Override
+	public void createPet() {
+		this.buildNameOfPet("DogFromBuilder");
+		this.buildOwner("DogOwner");
+		this.buildWeight(12.34);
+		this.buildColour(Colour.BROWN, Colour.BROWN, Colour.BROWN);
+		this.buildHeight(0.65);
+		this.buildTeeth(0.29);
 	}
 
 }

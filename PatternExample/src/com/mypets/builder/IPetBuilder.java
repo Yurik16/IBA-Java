@@ -5,12 +5,12 @@ import com.mypets.models.Pet.Colour;
 
 public interface IPetBuilder {
 
-	public IPetBuilder buildOwner(final String o);
-	public IPetBuilder buildNameOfPet(final String n);
-	public IPetBuilder buildWeight(final double w);
-	public IPetBuilder buildColour(final Colour main, Colour scnd, Colour thrd);
+	public void buildOwner(final String o);
+	public void buildNameOfPet(final String n);
+	public void buildWeight(final double w);
+	public void buildColour(final Colour main, Colour scnd, Colour thrd);
 	
 	public void createPet();
-	public Pet getThisPet();
+	public Pet getPet();
 
 }

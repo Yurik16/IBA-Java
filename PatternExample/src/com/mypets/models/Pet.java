@@ -5,9 +5,25 @@ public class Pet {
 	private String owner;
 	private String nameOfPet;
 	private double weight;
-	private String colour;		
+	private String colour;
 	
 	
+	public enum Colour {
+		BLACK, WHITE, GREY, BLUE, RED, BROWN
+	}
+
+	public void vioce() {
+		System.out.println("?!#$!");
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String.format("Pet [owner=%s, nameOfPet=%s, weight=%s, colour=%s]", owner, nameOfPet, weight, colour);
+	}
+
 	/**
 	 * @return the owner
 	 */
@@ -60,12 +76,8 @@ public class Pet {
 	/**
 	 * @param colour the colour to set
 	 */
-	public void setColour(String colour) {
-		this.colour = colour;
-	}
-	
-	
-	public enum Colour {
-		BLACK, WHITE, GREY, BLUE, RED, BROWN
-	}
+	public void setColour(Colour main, Colour scnd, Colour thrd) {
+		this.colour = String.format("%s-%s-%s", main, scnd, thrd);
+	}	
+
 }

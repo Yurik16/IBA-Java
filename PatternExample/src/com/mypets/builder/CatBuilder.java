@@ -11,42 +11,46 @@ public class CatBuilder implements IPetBuilder{
 	public CatBuilder() {this.cat = new Cat();}
 	
 	@Override
-	public IPetBuilder buildOwner(String o) {
+	public void buildOwner(String o) {
 		cat.setOwner(o);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildNameOfPet(String n) {
+	public void buildNameOfPet(String n) {
 		cat.setNameOfPet(n);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildWeight(double w) {
+	public void buildWeight(double w) {
 		cat.setWeight(w);
-		return this;
 	}
 
 	@Override
-	public IPetBuilder buildColour(Colour main, Colour scnd, Colour thrd) {
+	public void buildColour(Colour main, Colour scnd, Colour thrd) {
 		cat.setColour(main, scnd, thrd);
-		return this;
 	}
 	
-	public IPetBuilder buildTailLength(double t) {
+	public void buildTailLength(double t) {
 		cat.setTailLength(t);
-		return this;
 	}
-	
-	public IPetBuilder buildMustacheLength(Double m) {
+
+	public void buildMustacheLength(Double m) {
 		cat.setMustacheLength(m);
-		return this;
 	}
 
 	@Override
-	public Pet getThisPet() {
+	public Pet getPet() {
 		return this.cat;
+	}
+
+	@Override
+	public void createPet() {
+		this.buildNameOfPet("CatFromBuilder");
+		this.buildOwner("CatOwner");
+		this.buildWeight(4.32);
+		this.buildColour(Colour.BLACK, Colour.BLACK, Colour.BLACK);
+		this.buildMustacheLength(0.12);
+		this.buildTailLength(0.45);
 	}
 
 }
